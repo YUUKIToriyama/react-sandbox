@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>react-sandbox | YUUKIToriyama</title>
+		<!-- Reactを使うための準備 -->
+		<script src="node_modules/react/umd/react.production.min.js" crossorigin></script>
+		<script src="node_modules/react-dom/umd/react-dom.production.min.js" crossorigin></script>
+		<script src="node_modules/babel-standalone/babel.min.js"></script>
+		<!-- ここまで -->
+		<style type="text/css">
+			button {
+				font-size: 16px;
+				font-weight: bold;
+				padding: 5px 15px;
+				border-radius: 5px;
+				outline: none;
+				cursor: pointer;
+			}
+			button.like {
+				border: 1px solid #256ae8;
+				color: #256ae8;
+				background: #fff;
+			}
+			button.liked {
+				border: 1px solid #256ae8;
+				color: #fff;
+				background: #256ae8;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="like_button_container"></div>
+		<script type="text/babel">
+			const LikeButton = () => {
+				const [liked, setLiked] = React.useState(false);
+				const className = liked ? "liked" : "like";
+				return <button className={className} onClick={() => setLiked(!liked)}>いいね</button>;
+			}
+			const domContainer = document.getElementById("like_button_container");
+			ReactDOM.render(<LikeButton/>, domContainer);
+		</script>
+		
+	</body>
+</html>

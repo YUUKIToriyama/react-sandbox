@@ -1,0 +1,27 @@
+{
+  "name": "react-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/http-server/bin/http-server . 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUUKIToriyama/react-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YUUKIToriyama/react-sandbox/issues"
+  },
+  "homepage": "https://github.com/YUUKIToriyama/react-sandbox#readme",
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
