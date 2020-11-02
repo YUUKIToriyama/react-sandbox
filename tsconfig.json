@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "es2020",
+		"jsx": "react",
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": [
+			"es2020",
+			"dom"
+		]
+	}
+}
