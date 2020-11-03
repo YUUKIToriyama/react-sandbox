@@ -1,23 +1,38 @@
 const path = require("path");
+const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
+
+const DEV_PORT = process.env.PORT || 3000;
+
 module.exports = {
-	entry: {
-		bundle: "./src/main.ts"
+	entry: "./src/main.js"
 	},
 	output: {
-		path: path.join(__dirname, "dist"),
-		filename: "[name].js"
-	},
-	resolve: {
-		extensions: [".ts", ".js"]
+		path: path.resolve(__dirname, "dist/"),
+		filename: "bundle.js"
 	},
 	devServer: {
-		contentBase: path.join(__dirname, "dist")
+		contentBase: path.join(__dirname, "dist/"),
+			port: DEV_PORT,
+			hot: true
 	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin();
+		new CopyPlugin([{from: "./public", to: "."}])
+	],
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
-				loader: "ts-loader"
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: "babel-loader",
+				options: {
+					presets: ["@babel/env"]
+				}
+			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"]
 			}
 		]
 	}
